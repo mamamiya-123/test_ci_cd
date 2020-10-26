@@ -49,7 +49,7 @@ def lint():
 
 @cmd.command(help="django-like dbshell command use pgcli")
 def dbshell():
-    from app.core import config
+    from app.core import config # pylint: disable=import-outside-toplevel
 
     subprocess.call(["pgcli", config.settings.postgres_dsn])
 
@@ -58,7 +58,7 @@ def dbshell():
 def shell():
     try:
         import IPython  # pylint: disable=import-outside-toplevel
-        from app.core import config  # pylint: disable=import-outside-toplevel
+        from app.core import config  # noqa
         from traitlets.config import Config  # pylint: disable=import-outside-toplevel
 
     except ImportError:

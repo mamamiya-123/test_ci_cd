@@ -4,7 +4,7 @@ volumes:
   local_postgres_data: { }
 
 services:
-  test_ci:
+  my_test_ci:
     build:
       context: .
       dockerfile: Dockerfile
@@ -15,8 +15,8 @@ services:
     volumes:
       - .:/work
     environment:
-      - POSTGRES_DSN=postgres://test_ci:test_ci@postgres:5432/test_ci
-      - POSTGRES_DSN_TEST=postgres://test_ci:test_ci@postgres:5432/test_ci_{}
+      - POSTGRES_DSN=postgres://my_test_ci:my_test_ci@postgres:5432/my_test_ci
+      - POSTGRES_DSN_TEST=postgres://my_test_ci:my_test_ci@postgres:5432/my_test_ci_{}
     ports:
       - 8000:8000
     command:
@@ -29,6 +29,6 @@ services:
     volumes:
       - local_postgres_data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_USER=test_ci
-      - POSTGRES_PASSWORD=test_ci
-      - POSTGRES_DB=test_ci
+      - POSTGRES_USER=my_test_ci
+      - POSTGRES_PASSWORD=my_test_ci
+      - POSTGRES_DB=my_test_ci

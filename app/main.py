@@ -17,7 +17,7 @@ logging.root.setLevel("INFO")
 def create_app():
     fast_app = FastAPI(
         debug=False,
-        title="test_ci API Document",
+        title="my_test_ci API Document",
         servers=[
             {"url": "http://localhost:8000", "description": "Developing environment"},
         ],
